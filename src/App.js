@@ -29,7 +29,7 @@ export default function App() {
 const http = require("http");
 const { neon } = require("@neondatabase/serverless");
 
-const sql = neon('postgresql://pathfinder_owner:npg_Aoh0YSmeb9TP@ep-lingering-art-a8vbjo6j-pooler.eastus2.azure.neon.tech/pathfinder?sslmode=require');
+const sql = neon(process.env.DATABASE_URL);
 
 const requestHandler = async (req, res) => {
   const result = await sql`SELECT version()`;
